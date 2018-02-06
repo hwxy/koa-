@@ -3,7 +3,9 @@ var app =new Koa();
 var router=require('koa-router')();
 var fs=require('fs.promised');
 var body=require('koa-body')();
-router.get('/',async (ctx,next)=>{
+router.get('/:id',async (ctx,next)=>{
+
+    console.log(ctx.params)
      ctx.body= await fs.readFile('./form.html','utf8')
 })
 router.post('/post',async (ctx,next)=>{
